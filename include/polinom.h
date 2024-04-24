@@ -59,6 +59,8 @@ public:
 
 	Polynom operator*(double c) const;
 
+	double value_pol(double x1, double y1, double z1) const;
+
 	bool operator ==(const Polynom& p) const;
 
 

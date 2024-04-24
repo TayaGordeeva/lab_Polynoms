@@ -172,6 +172,20 @@ Polynom Polynom::operator* (const Polynom& p) const
 	return res;
 }
 
+double Polynom::value_pol(double x1, double y1, double z1) const
+{
+	double res = 0.0;
+	for (Monom* m1 = pFirst; m1 != nullptr; m1 = m1->pNext)
+	{
+		double x_v = (m1->value) / 100;
+		double y_v = ((m1->value) / 10) % 10;
+		double z_v = (m1->value) % 10;
+		res += (m1->coeff) * (pow(x1, x_v)) * (pow(y1, y_v)) * (pow(z1, z_v));
+	}
+
+	return res;
+}
+
 bool Polynom::operator ==(const Polynom& p) const
 {
 	Monom* m1 = pFirst;
